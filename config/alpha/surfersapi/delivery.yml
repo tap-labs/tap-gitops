@@ -42,7 +42,7 @@ spec:
         component: backend
     spec:
       containers:
-      - image: harbor.services.tanzu.rocks/labs/supply-chain/surfersapi-alpha@sha256:13919f5bad93c88241f68c18c0f0de0ab63eee551a43346726fe3adf726defcd
+      - image: harbor.services.tanzu.rocks/labs/supply-chain/surfersapi-alpha@sha256:cc516996568e8ca62fe60901633f015dc7f9b8c55c40d390ce9ec44e5833b050
         name: workload
         resources: {}
         securityContext:
