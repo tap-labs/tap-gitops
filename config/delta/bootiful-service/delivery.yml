@@ -31,9 +31,7 @@ spec:
           spring-boot-convention/app-live-view-appflavour-check
           spring-boot-convention/app-live-view-connector-boot
           spring-boot-convention/app-live-view-appflavours-boot
-          spring-boot-convention/service-intent-postgres
         developer.conventions/target-containers: workload
-        services.conventions.carto.run/postgres: postgresql/42.6.0
       labels:
         app.kubernetes.io/component: run
         app.kubernetes.io/part-of: bootiful-service
@@ -42,7 +40,6 @@ spec:
         apps.tanzu.vmware.com/workload-type: web
         carto.run/workload-name: bootiful-service
         conventions.carto.run/framework: spring-boot
-        services.conventions.carto.run/postgres: workload
         tanzu.app.live.view: "true"
         tanzu.app.live.view.application.actuator.path: actuator
         tanzu.app.live.view.application.actuator.port: "8081"
@@ -53,7 +50,7 @@ spec:
       - env:
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.endpoint.health.show-details="always" -Dmanagement.endpoints.web.base-path="/actuator" -Dmanagement.endpoints.web.exposure.include="*" -Dmanagement.health.probes.enabled="true" -Dmanagement.server.port="8081" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: harbor.services.tanzu.rocks/labs/supply-chain/bootiful-service-delta@sha256:d2cc86aa5532ec2a4b2f6e4e05b2add83a1d1749f76f03842dc0aa7909283670
+        image: harbor.services.tanzu.rocks/labs/supply-chain/bootiful-service-delta@sha256:324bdb32379c20351f2150e80b3de0ed5593d92f48c4c5e83c1dcda3368a4b4c
         livenessProbe:
           httpGet:
             path: /livez
