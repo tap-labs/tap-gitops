@@ -50,7 +50,7 @@ spec:
       - env:
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.endpoint.health.show-details="always" -Dmanagement.endpoints.web.base-path="/actuator" -Dmanagement.endpoints.web.exposure.include="*" -Dmanagement.health.probes.enabled="true" -Dmanagement.server.port="8081" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: harbor.services.tanzu.rocks/labs/supply-chain/tanzu-java-gradle-delta@sha256:fcae48144ce9422db92d8ea000569ab88ae804a51873532d549c13e63d684f2e
+        image: harbor.services.tanzu.rocks/labs/supply-chain/tanzu-java-gradle-delta@sha256:7ea2703948a1dad08e86912d41c07a7918af906f91f3a726304c8c4de12b95f8
         livenessProbe:
           httpGet:
             path: /livez
