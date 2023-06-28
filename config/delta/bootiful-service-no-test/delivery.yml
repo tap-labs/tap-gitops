@@ -37,7 +37,7 @@ spec:
           spring-boot-convention/app-live-view-appflavour-check
           spring-boot-convention/app-live-view-connector-boot
           spring-boot-convention/app-live-view-appflavours-boot
-        developer.apps.tanzu.vmware.com/image-source-digest: harbor.services.tanzu.rocks/workshop/bootiful-service:latest@sha256:c9bf730bfeed1b8f0ae2e27f891492b67a91a129937f6d9b4b852f049b9f1d20
+        developer.apps.tanzu.vmware.com/image-source-digest: harbor.services.tanzu.rocks/workshop/bootiful-service:latest@sha256:71acb6d828bdc5b6177a85f90f86f1994f3378adb31c93e8c171a8d85501211e
         developer.conventions/target-containers: workload
       labels:
         app.kubernetes.io/component: run
@@ -61,7 +61,7 @@ spec:
           value: "9005"
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.endpoint.health.show-details="always" -Dmanagement.endpoints.web.base-path="/actuator" -Dmanagement.endpoints.web.exposure.include="*" -Dmanagement.health.probes.enabled="true" -Dmanagement.server.port="8081" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: harbor.services.tanzu.rocks/labs/supply-chain/bootiful-service-no-test-delta@sha256:fa454202b4197d66ad169dbb297d5e7e4a717c92442508b7acb05793752ed3ff
+        image: harbor.services.tanzu.rocks/labs/supply-chain/bootiful-service-no-test-delta@sha256:04e8a4b301a172e203eb5f40aece1e69cdc082f7e0ef4c0c9b098e17ca827195
         livenessProbe:
           httpGet:
             path: /livez
