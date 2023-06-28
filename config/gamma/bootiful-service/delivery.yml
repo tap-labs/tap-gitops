@@ -38,7 +38,7 @@ spec:
           spring-boot-convention/app-live-view-connector-boot
           spring-boot-convention/app-live-view-appflavours-boot
           spring-boot-convention/service-intent-postgres
-        developer.apps.tanzu.vmware.com/image-source-digest: harbor.services.tanzu.rocks/workshop/bootiful-service:latest@sha256:a0baf7a915dc29b98c30961a3241ca2d4ee1bc0a9567bf31a37dfa3c1005c4bc
+        developer.apps.tanzu.vmware.com/image-source-digest: harbor.services.tanzu.rocks/workshop/bootiful-service:latest@sha256:f2ded969adfa16b6d4bbc9dec36f7049585b883fe74a3b6bf06304b8eef11388
         developer.conventions/target-containers: workload
         services.conventions.carto.run/postgres: postgresql/42.6.0
       labels:
@@ -64,7 +64,7 @@ spec:
           value: "9005"
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.endpoint.health.show-details="always" -Dmanagement.endpoints.web.base-path="/actuator" -Dmanagement.endpoints.web.exposure.include="*" -Dmanagement.health.probes.enabled="true" -Dmanagement.server.port="8081" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: harbor.services.tanzu.rocks/labs/supply-chain/bootiful-service-gamma@sha256:9eee6b41f3decb39455741de2f3185871db2c78a38bd813433ac3ef48514c2e4
+        image: harbor.services.tanzu.rocks/labs/supply-chain/bootiful-service-gamma@sha256:1143b74c852996d1798afb4d6f5fcca550dce413b798ee1417d67ee78a8ca5ff
         livenessProbe:
           httpGet:
             path: /livez
