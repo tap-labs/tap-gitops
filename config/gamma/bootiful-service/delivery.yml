@@ -37,8 +37,10 @@ spec:
           spring-boot-convention/app-live-view-appflavour-check
           spring-boot-convention/app-live-view-connector-boot
           spring-boot-convention/app-live-view-appflavours-boot
-        developer.apps.tanzu.vmware.com/image-source-digest: harbor.services.tanzu.rocks/workshop/bootiful-service:latest@sha256:c477be09d8515228359f95463ea71e9fed2b45c634c0eaaf2f14fa70da1592b2
+          spring-boot-convention/service-intent-postgres
+        developer.apps.tanzu.vmware.com/image-source-digest: harbor.services.tanzu.rocks/workshop/bootiful-service:latest@sha256:a0baf7a915dc29b98c30961a3241ca2d4ee1bc0a9567bf31a37dfa3c1005c4bc
         developer.conventions/target-containers: workload
+        services.conventions.carto.run/postgres: postgresql/42.6.0
       labels:
         app.kubernetes.io/component: run
         app.kubernetes.io/part-of: bootiful-service
@@ -47,6 +49,7 @@ spec:
         apps.tanzu.vmware.com/workload-type: web
         carto.run/workload-name: bootiful-service
         conventions.carto.run/framework: spring-boot
+        services.conventions.carto.run/postgres: workload
         tanzu.app.live.view: "true"
         tanzu.app.live.view.application.actuator.path: actuator
         tanzu.app.live.view.application.actuator.port: "8081"
@@ -61,7 +64,7 @@ spec:
           value: "9005"
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.endpoint.health.show-details="always" -Dmanagement.endpoints.web.base-path="/actuator" -Dmanagement.endpoints.web.exposure.include="*" -Dmanagement.health.probes.enabled="true" -Dmanagement.server.port="8081" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: harbor.services.tanzu.rocks/labs/supply-chain/bootiful-service-gamma@sha256:9cc336bce1ec27854ada18aec467f2b710ba06d2d3637331747ee8287e1e43d7
+        image: harbor.services.tanzu.rocks/labs/supply-chain/bootiful-service-gamma@sha256:9eee6b41f3decb39455741de2f3185871db2c78a38bd813433ac3ef48514c2e4
         livenessProbe:
           httpGet:
             path: /livez
