@@ -7,7 +7,7 @@ metadata:
     ootb.apps.tanzu.vmware.com/apidescriptor-ref: "true"
     kapp.k14s.io/change-rule: upsert after upserting servicebinding.io/ServiceBindings
   labels:
-    app.kubernetes.io/part-of: bootiful-spring-boot-3
+    app.kubernetes.io/part-of: bootiful-service
     apps.tanzu.vmware.com/auto-configure-actuators: "true"
     apps.tanzu.vmware.com/has-tests: "true"
     apps.tanzu.vmware.com/workload-type: web
@@ -17,11 +17,17 @@ spec:
   template:
     metadata:
       annotations:
+        apps.tanzu.vmware.com/debug: "true"
+        apps.tanzu.vmware.com/live-update: "true"
+        autoscaling.knative.dev/maxScale: "1"
         autoscaling.knative.dev/minScale: "1"
         boot.spring.io/actuator: http://:8081/actuator
         boot.spring.io/version: 3.1.0
         conventions.carto.run/applied-conventions: |-
           appliveview-sample/app-live-view-appflavour-check
+          developer-conventions/debug-convention
+          developer-conventions/live-update-convention
+          developer-conventions/add-source-image-label
           spring-boot-convention/auto-configure-actuators-check
           spring-boot-convention/spring-boot
           spring-boot-convention/spring-boot-graceful-shutdown
@@ -31,10 +37,11 @@ spec:
           spring-boot-convention/app-live-view-appflavour-check
           spring-boot-convention/app-live-view-connector-boot
           spring-boot-convention/app-live-view-appflavours-boot
+        developer.apps.tanzu.vmware.com/image-source-digest: harbor.services.tanzu.rocks/workshop/bootiful-service:latest@sha256:c477be09d8515228359f95463ea71e9fed2b45c634c0eaaf2f14fa70da1592b2
         developer.conventions/target-containers: workload
       labels:
         app.kubernetes.io/component: run
-        app.kubernetes.io/part-of: bootiful-spring-boot-3
+        app.kubernetes.io/part-of: bootiful-service
         apps.tanzu.vmware.com/auto-configure-actuators: "true"
         apps.tanzu.vmware.com/has-tests: "true"
         apps.tanzu.vmware.com/workload-type: web
@@ -48,9 +55,13 @@ spec:
     spec:
       containers:
       - env:
+        - name: BPL_DEBUG_ENABLED
+          value: "true"
+        - name: BPL_DEBUG_PORT
+          value: "9005"
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.endpoint.health.show-details="always" -Dmanagement.endpoints.web.base-path="/actuator" -Dmanagement.endpoints.web.exposure.include="*" -Dmanagement.health.probes.enabled="true" -Dmanagement.server.port="8081" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: harbor.services.tanzu.rocks/labs/supply-chain/bootiful-service-gamma@sha256:ff2f73cede4a3c25958209fa00d135e3a3eead39534ac0e94f765174129b40d7
+        image: harbor.services.tanzu.rocks/labs/supply-chain/bootiful-service-gamma@sha256:9cc336bce1ec27854ada18aec467f2b710ba06d2d3637331747ee8287e1e43d7
         livenessProbe:
           httpGet:
             path: /livez
