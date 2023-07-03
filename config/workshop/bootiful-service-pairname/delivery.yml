@@ -7,7 +7,7 @@ metadata:
     ootb.apps.tanzu.vmware.com/apidescriptor-ref: "true"
     kapp.k14s.io/change-rule: upsert after upserting servicebinding.io/ServiceBindings
   labels:
-    app.kubernetes.io/part-of: bootiful-service
+    app.kubernetes.io/part-of: bootiful-service-pairnamex
     apps.tanzu.vmware.com/auto-configure-actuators: "true"
     apps.tanzu.vmware.com/has-tests: "true"
     apps.tanzu.vmware.com/workload-type: web
@@ -37,11 +37,11 @@ spec:
           spring-boot-convention/app-live-view-appflavour-check
           spring-boot-convention/app-live-view-connector-boot
           spring-boot-convention/app-live-view-appflavours-boot
-        developer.apps.tanzu.vmware.com/image-source-digest: harbor.services.tanzu.rocks/workshop/pairname-bootiful-service-source:latest@sha256:34d06f271c44da1f654d5ce50ebc7b4dd5fbf239d814dc45f3dd6bbe2edaf35c
+        developer.apps.tanzu.vmware.com/image-source-digest: harbor.services.tanzu.rocks/workshop/pairname-bootiful-service-source:latest@sha256:6e320d86d169db808dc8841c828eb94907591c0a772ccdeba212b82fc8250ad9
         developer.conventions/target-containers: workload
       labels:
         app.kubernetes.io/component: run
-        app.kubernetes.io/part-of: bootiful-service
+        app.kubernetes.io/part-of: bootiful-service-pairnamex
         apps.tanzu.vmware.com/auto-configure-actuators: "true"
         apps.tanzu.vmware.com/has-tests: "true"
         apps.tanzu.vmware.com/workload-type: web
@@ -61,7 +61,7 @@ spec:
           value: "9005"
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.endpoint.health.show-details="always" -Dmanagement.endpoints.web.base-path="/actuator" -Dmanagement.endpoints.web.exposure.include="*" -Dmanagement.health.probes.enabled="true" -Dmanagement.server.port="8081" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: harbor.services.tanzu.rocks/labs/supply-chain/bootiful-service-pairname-workshop@sha256:1e0831d54c9fedb7cbbc76d8f9d8cbe6eed2588016850fb20a6f5d844704b351
+        image: harbor.services.tanzu.rocks/labs/supply-chain/bootiful-service-pairname-workshop@sha256:847c8d50ff5e09e4a2d4d40ff3fbc1fed2c657e319ffaf5772074eab21372721
         livenessProbe:
           httpGet:
             path: /livez
