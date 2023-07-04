@@ -26,6 +26,7 @@ spec:
         conventions.carto.run/applied-conventions: |-
           appliveview-sample/app-live-view-appflavour-check
           developer-conventions/debug-convention
+          developer-conventions/live-update-convention
           developer-conventions/add-source-image-label
           spring-boot-convention/auto-configure-actuators-check
           spring-boot-convention/spring-boot
@@ -60,7 +61,7 @@ spec:
           value: "9005"
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.endpoint.health.show-details="always" -Dmanagement.endpoints.web.base-path="/actuator" -Dmanagement.endpoints.web.exposure.include="*" -Dmanagement.health.probes.enabled="true" -Dmanagement.server.port="8081" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: harbor.services.tanzu.rocks/labs/supply-chain/bootiful-service-hanuram-workshop@sha256:c641b3cda59227eed63a9214c068e3b2655ef33f7d24b644c4f6eb2929cc0a95
+        image: harbor.services.tanzu.rocks/labs/supply-chain/bootiful-service-hanuram-workshop@sha256:71ac7e87c325ab31e3eb67343b4f82626e6e5c9c3d412e15ba5e132974495d0c
         livenessProbe:
           httpGet:
             path: /livez
