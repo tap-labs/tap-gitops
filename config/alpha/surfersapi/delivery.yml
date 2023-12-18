@@ -1,0 +1,63 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: surfersapi
+  annotations:
+    ootb.apps.tanzu.vmware.com/servicebinding-workload: "true"
+    ootb.apps.tanzu.vmware.com/apidescriptor-ref: "true"
+    kapp.k14s.io/change-rule: upsert after upserting servicebinding.io/ServiceBindings
+  labels:
+    apis.apps.tanzu.vmware.com/register-api: "true"
+    app.kubernetes.io/part-of: surferslookout
+    apps.tanzu.vmware.com/has-tests: "true"
+    apps.tanzu.vmware.com/language: python
+    apps.tanzu.vmware.com/workload-type: web
+    component: backend
+    deployment-model: blue-green
+    is-accelerator: "true"
+    app.kubernetes.io/component: run
+    carto.run/workload-name: surfersapi
+spec:
+  template:
+    metadata:
+      annotations:
+        apps.tanzu.vmware.com/correlationid: https://github.com/davlloyd/surfers-api?sub_path=/
+        autoscaling.knative.dev/initial-scale: "1"
+        autoscaling.knative.dev/max-scale: "50"
+        autoscaling.knative.dev/metric: rps
+        autoscaling.knative.dev/min-scale: "1"
+        autoscaling.knative.dev/scale-down-delay: 2s
+        autoscaling.knative.dev/target: "50"
+        autoscaling.knative.dev/window: 10s
+        conventions.carto.run/applied-conventions: |-
+          appliveview-sample/app-live-view-appflavour-check
+          spring-boot-convention/auto-configure-actuators-check
+          spring-boot-convention/app-live-view-appflavour-check
+        developer.conventions/target-containers: workload
+      labels:
+        apis.apps.tanzu.vmware.com/register-api: "true"
+        app.kubernetes.io/component: run
+        app.kubernetes.io/part-of: surferslookout
+        apps.tanzu.vmware.com/has-tests: "true"
+        apps.tanzu.vmware.com/language: python
+        apps.tanzu.vmware.com/workload-type: web
+        carto.run/workload-name: surfersapi
+        component: backend
+        deployment-model: blue-green
+        is-accelerator: "true"
+    spec:
+      containers:
+      - image: harbor.services.tanzu.rocks/labs/supply-chain/surfersapi-alpha@sha256:8afd6468c6705595cf73b3238a70807513c1bd9d270b7ff272e7b98e417c1290
+        name: workload
+        resources: {}
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+      serviceAccountName: default
+
