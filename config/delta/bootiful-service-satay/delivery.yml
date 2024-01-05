@@ -34,7 +34,7 @@ spec:
           spring-boot-convention/app-live-view-connector-boot
           spring-boot-convention/app-live-view-appflavours-boot
         developer.conventions/target-containers: workload
-        local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:delta-bootiful-service-satay@sha256:e76e61904002b3539cff3f59eb476f9076fa570457fc6ed5a7773417b5e00efe
+        local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:delta-bootiful-service-satay@sha256:dfe3a1171d37d78ab4f509a2b59645dc16d0c6b446a44b5b0c7139832eab56b0
       labels:
         app.kubernetes.io/component: run
         app.kubernetes.io/part-of: bootiful-service-satay
@@ -52,6 +52,14 @@ spec:
     spec:
       containers:
       - env:
+        - name: MANAGEMENT_HEALTH_PROBES_ENABLED
+          value: "true"
+        - name: MANAGEMENT_ENDPOINT_HEALTH_PROBES_ADD_ADDITIONAL_PATHS
+          value: "true"
+        - name: MANAGEMENT_ENDPOINT_HEALTH_SHOW_DETAILS
+          value: always
+        - name: SERVER_PORT
+          value: "8080"
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.endpoint.health.show-details="always" -Dmanagement.endpoints.web.base-path="/actuator" -Dmanagement.endpoints.web.exposure.include="*" -Dmanagement.health.probes.enabled="true" -Dmanagement.server.port="8081" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
         image: harbor.services.tanzu.rocks/labs/supply-chain/bootiful-service-satay-delta@sha256:b93eac9ec2abce3a0e1c67033e670ff967e56bf3bb71d37ea799e1c146f1824f
