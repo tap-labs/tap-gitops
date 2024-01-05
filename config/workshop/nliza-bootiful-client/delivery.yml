@@ -47,7 +47,7 @@ spec:
           value: cloud
         - name: JAVA_TOOL_OPTIONS
           value: -Dserver.port="8080"
-        image: harbor.services.tanzu.rocks/labs/supply-chain/nliza-bootiful-client-workshop@sha256:61e38f2544714b6b140218f06e8c898234dfb49710f9fc1fa9be5168f400bc8f
+        image: harbor.services.tanzu.rocks/labs/supply-chain/nliza-bootiful-client-workshop@sha256:3c32a5a111a440ac46e67667a54ebb96f3d3746e674e6cdbccb3058747fce48d
         name: workload
         ports:
         - containerPort: 8080
