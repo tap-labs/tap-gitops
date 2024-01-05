@@ -29,7 +29,7 @@ spec:
           spring-boot-convention/spring-boot-web
           spring-boot-convention/app-live-view-appflavour-check
         developer.conventions/target-containers: workload
-        local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:workshop-nliza-bootiful-client@sha256:2d2301b708ed8dfb540bbc315eb3a2702c08c494301a0b5ccb4fde207406cc1f
+        local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:workshop-nliza-bootiful-client@sha256:26e3847249fafed6d4f887d92d718d103fd1f9ce51910d812db71641ae7898e3
       labels:
         app.kubernetes.io/component: run
         app.kubernetes.io/part-of: bootiful-client-nliza
