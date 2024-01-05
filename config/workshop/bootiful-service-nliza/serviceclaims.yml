@@ -18,7 +18,7 @@ kind: ServiceBinding
 metadata:
   name: bootiful-service-nliza-postgres
   annotations:
-    local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:workshop-bootiful-service-nliza@sha256:e759fb7ad3b12a6ba09269b46e36dd52d44063e348ecd3ce5c7a0aaee7e38922
+    local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:workshop-bootiful-service-nliza@sha256:5e454402b44b977e192579e37a6135098bb2dc420f941399a882f52b739cee43
     autoscaling.knative.dev/minScale: "1"
     kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
   labels:
