@@ -32,7 +32,7 @@ spec:
         carto.run/workload-name: react-frontend-gam
     spec:
       containers:
-      - image: harbor.services.tanzu.rocks/labs/supply-chain/react-frontend-gam-gamma@sha256:e935c1dca5afe374b1a4cbc522e48acf2f482e18cfefb21ba81d78df6ccb1bc6
+      - image: harbor.services.tanzu.rocks/labs/supply-chain/react-frontend-gam-gamma@sha256:515feb8968ef0622ce544518fdf41bf412d8c169a108b0bf23db372a65ee5a61
         name: workload
         resources: {}
         securityContext:
