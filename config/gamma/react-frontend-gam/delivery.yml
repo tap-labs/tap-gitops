@@ -23,7 +23,7 @@ spec:
           spring-boot-convention/auto-configure-actuators-check
           spring-boot-convention/app-live-view-appflavour-check
         developer.conventions/target-containers: workload
-        local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:gamma-react-frontend-gam@sha256:bd0f2ab1fef19dc3d0aa0c6bb8fa534e2c7d95c7821c8a91e6f6cda5567e05d0
+        local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:gamma-react-frontend-gam@sha256:b3c7a6d21cb8afed28a961527135a97e36604006470b466ac80982e64794c3ba
       labels:
         app.kubernetes.io/component: run
         app.kubernetes.io/part-of: react-frontend
