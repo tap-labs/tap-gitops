@@ -55,7 +55,7 @@ spec:
       - env:
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.endpoint.health.show-details="always" -Dmanagement.endpoints.web.base-path="/actuator" -Dmanagement.endpoints.web.exposure.include="*" -Dmanagement.health.probes.enabled="true" -Dmanagement.server.port="8081" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: harbor.services.tanzu.rocks/labs/supply-chain/bootiful-service-alphabravo-indie@sha256:e454d0252b1587f4fcf5f7493c4f5624cb40a6798c93ce8b93e5153f5995748b
+        image: harbor.services.tanzu.rocks/labs/supply-chain/bootiful-service-alphabravo-indie@sha256:7f69147f03131c8774ec398ffac0bac29a128266a634d964db54b1738fc31575
         livenessProbe:
           httpGet:
             path: /livez
