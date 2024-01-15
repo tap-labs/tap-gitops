@@ -18,7 +18,7 @@ kind: ServiceBinding
 metadata:
   name: bootiful-service-simon-psql-applebanana
   annotations:
-    local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:trial-bootiful-service-simon@sha256:b334c562cf7818dc0d213113cfd2413295e9117157f100226aa117c73dd2a5b6
+    local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:trial-bootiful-service-simon@sha256:c6e1e4bc394082c73605c338f5a1a44a92d16247234c3d1b84319801dcb8c40f
     autoscaling.knative.dev/minScale: "1"
     kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
   labels:
@@ -33,7 +33,7 @@ spec:
   service:
     apiVersion: services.apps.tanzu.vmware.com/v1alpha1
     kind: ClassClaim
-    name: bootiful-service-applebanana
+    name: psql-applebanana
   workload:
     apiVersion: serving.knative.dev/v1
     kind: Service
