@@ -17,7 +17,7 @@ spec:
   template:
     metadata:
       annotations:
-        apps.tanzu.vmware.com/correlationid: harbor.services.tanzu.rocks/workshop/applebanana-bootiful-service?sub_path=/
+        apps.tanzu.vmware.com/correlationid: harbor.services.tanzu.rocks/workshop/johan-bootiful-service?sub_path=/
         autoscaling.knative.dev/minScale: "1"
         boot.spring.io/actuator: http://:8081/actuator
         boot.spring.io/version: 3.1.1
