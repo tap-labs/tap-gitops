@@ -34,7 +34,7 @@ spec:
           spring-boot-convention/app-live-view-appflavours-boot
           spring-boot-convention/service-intent-postgres
         developer.conventions/target-containers: workload
-        local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:trial-bootiful-service-simon@sha256:b334c562cf7818dc0d213113cfd2413295e9117157f100226aa117c73dd2a5b6
+        local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:trial-bootiful-service-simon@sha256:c6e1e4bc394082c73605c338f5a1a44a92d16247234c3d1b84319801dcb8c40f
         services.conventions.carto.run/postgres: postgresql/42.6.0
       labels:
         app.kubernetes.io/component: run
