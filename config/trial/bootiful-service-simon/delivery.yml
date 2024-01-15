@@ -20,7 +20,7 @@ spec:
         apps.tanzu.vmware.com/correlationid: harbor.services.tanzu.rocks/labs/local-source:trial-bootiful-service-simon?sub_path=/
         autoscaling.knative.dev/minScale: "1"
         boot.spring.io/actuator: http://:8081/actuator
-        boot.spring.io/version: 3.1.1
+        boot.spring.io/version: 3.1.2
         conventions.carto.run/applied-conventions: |-
           appliveview-sample/app-live-view-appflavour-check
           spring-boot-convention/auto-configure-actuators-check
@@ -55,7 +55,7 @@ spec:
       - env:
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.endpoint.health.show-details="always" -Dmanagement.endpoints.web.base-path="/actuator" -Dmanagement.endpoints.web.exposure.include="*" -Dmanagement.health.probes.enabled="true" -Dmanagement.server.port="8081" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: harbor.services.tanzu.rocks/labs/supply-chain/bootiful-service-simon-trial@sha256:f9eb3b8d970753c00c260e9d4f304fa47070f14120091cef8de9c51fe5cbc13f
+        image: harbor.services.tanzu.rocks/labs/supply-chain/bootiful-service-simon-trial@sha256:a83919a7b8b115bc26c83f93c4526e979fcfa0248898c7a3e48d8630658afca7
         livenessProbe:
           httpGet:
             path: /livez
