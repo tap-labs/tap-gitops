@@ -18,7 +18,7 @@ kind: ServiceBinding
 metadata:
   name: bootiful-service-alphabravo-psql-alphabravo
   annotations:
-    local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:indie-bootiful-service-alphabravo@sha256:103899723109a9418a3c82e4d7cb316427590f6e420c5408f75057a30299e171
+    local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:indie-bootiful-service-alphabravo@sha256:55d5db6333c47e65f3161d3d7e1d1c03f3202ef4494c398cbe3aa35eb869b5aa
     autoscaling.knative.dev/minScale: "1"
     kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
   labels:
@@ -30,6 +30,32 @@ metadata:
     carto.run/workload-name: bootiful-service-alphabravo
 spec:
   name: psql-alphabravo
+  service:
+    apiVersion: services.apps.tanzu.vmware.com/v1alpha1
+    kind: ClassClaim
+    name: psql-alphabravo
+  workload:
+    apiVersion: serving.knative.dev/v1
+    kind: Service
+    name: bootiful-service-alphabravo
+---
+apiVersion: servicebinding.io/v1alpha3
+kind: ServiceBinding
+metadata:
+  name: bootiful-service-alphabravo-psql
+  annotations:
+    local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:indie-bootiful-service-alphabravo@sha256:55d5db6333c47e65f3161d3d7e1d1c03f3202ef4494c398cbe3aa35eb869b5aa
+    autoscaling.knative.dev/minScale: "1"
+    kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
+  labels:
+    app.kubernetes.io/part-of: bootiful-service-alphabravo
+    apps.tanzu.vmware.com/auto-configure-actuators: "true"
+    apps.tanzu.vmware.com/has-tests: "false"
+    apps.tanzu.vmware.com/workload-type: web
+    app.kubernetes.io/component: run
+    carto.run/workload-name: bootiful-service-alphabravo
+spec:
+  name: psql
   service:
     apiVersion: services.apps.tanzu.vmware.com/v1alpha1
     kind: ClassClaim
