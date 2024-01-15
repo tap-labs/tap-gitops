@@ -17,7 +17,7 @@ spec:
   template:
     metadata:
       annotations:
-        apps.tanzu.vmware.com/correlationid: harbor.services.tanzu.rocks/workshop/johan-bootiful-service?sub_path=/
+        apps.tanzu.vmware.com/correlationid: harbor.services.tanzu.rocks/labs/local-source:juliett-johan-bootiful-service?sub_path=/
         autoscaling.knative.dev/minScale: "1"
         boot.spring.io/actuator: http://:8081/actuator
         boot.spring.io/version: 3.1.1
@@ -32,7 +32,10 @@ spec:
           spring-boot-convention/app-live-view-appflavour-check
           spring-boot-convention/app-live-view-connector-boot
           spring-boot-convention/app-live-view-appflavours-boot
+          spring-boot-convention/service-intent-postgres
         developer.conventions/target-containers: workload
+        local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:juliett-johan-bootiful-service@sha256:8f93ca8f50160cc1a8bbd267e11afc79c45582fd26d7fbc230bde29bac11df45
+        services.conventions.carto.run/postgres: postgresql/42.6.0
       labels:
         app.kubernetes.io/component: run
         app.kubernetes.io/part-of: johan-bootiful-service
@@ -41,6 +44,7 @@ spec:
         apps.tanzu.vmware.com/workload-type: web
         carto.run/workload-name: johan-bootiful-service
         conventions.carto.run/framework: spring-boot
+        services.conventions.carto.run/postgres: workload
         tanzu.app.live.view: "true"
         tanzu.app.live.view.application.actuator.path: actuator
         tanzu.app.live.view.application.actuator.port: "8081"
@@ -51,7 +55,7 @@ spec:
       - env:
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.endpoint.health.show-details="always" -Dmanagement.endpoints.web.base-path="/actuator" -Dmanagement.endpoints.web.exposure.include="*" -Dmanagement.health.probes.enabled="true" -Dmanagement.server.port="8081" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: harbor.services.tanzu.rocks/labs/supply-chain/johan-bootiful-service-juliett@sha256:39b12840ac1a5c48e7a5ec9f8f62821e4a6c5634f847a0058fc1b1197a3249c2
+        image: harbor.services.tanzu.rocks/labs/supply-chain/johan-bootiful-service-juliett@sha256:e6c356730ea365d2cad08fdf301a27481b25671d9c700b265b689c59e1392b86
         livenessProbe:
           httpGet:
             path: /livez

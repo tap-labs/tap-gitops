@@ -18,6 +18,7 @@ kind: ServiceBinding
 metadata:
   name: johan-bootiful-service-johan-psql-service-claim
   annotations:
+    local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:juliett-johan-bootiful-service@sha256:8f93ca8f50160cc1a8bbd267e11afc79c45582fd26d7fbc230bde29bac11df45
     autoscaling.knative.dev/minScale: "1"
     kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
   labels:
