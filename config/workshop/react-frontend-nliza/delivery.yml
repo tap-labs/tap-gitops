@@ -23,7 +23,7 @@ spec:
           spring-boot-convention/auto-configure-actuators-check
           spring-boot-convention/app-live-view-appflavour-check
         developer.conventions/target-containers: workload
-        local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:workshop-react-frontend-nliza@sha256:fe92a98ad476391e9fa6103a2b54bcbe3caf8b5bedfd899cd35c86decf33ac85
+        local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:workshop-react-frontend-nliza@sha256:870e32a81c013f69b3749dce6fbe54c613437635c6acb30df08a6588d8b94702
       labels:
         app.kubernetes.io/component: run
         app.kubernetes.io/part-of: react-frontend-nliza
