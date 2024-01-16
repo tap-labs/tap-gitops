@@ -33,7 +33,7 @@ spec:
           spring-boot-convention/app-live-view-connector-boot
           spring-boot-convention/app-live-view-appflavours-boot
         developer.conventions/target-containers: workload
-        local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:foxtrot-bootiful-service-johan-localpath@sha256:0655c0ee5b94ebaacec2b42e0c3c34621a6a682874a6caa4b4522ee61a9b8a1e
+        local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:foxtrot-bootiful-service-johan-localpath@sha256:71faa88d6c30615e022ef167356c91545aa422a1f251e59f88d1ae5f3de85a01
       labels:
         app.kubernetes.io/component: run
         app.kubernetes.io/part-of: bootiful-service-johan-localpath
