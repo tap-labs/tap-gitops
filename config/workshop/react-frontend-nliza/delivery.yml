@@ -32,7 +32,7 @@ spec:
         carto.run/workload-name: react-frontend-nliza
     spec:
       containers:
-      - image: harbor.services.tanzu.rocks/labs/supply-chain/react-frontend-nliza-workshop@sha256:093451fd0afc3978bb92089327cec49b9b5ee08b060a3024b2bea27cafafbb2f
+      - image: harbor.services.tanzu.rocks/labs/supply-chain/react-frontend-nliza-workshop@sha256:26db18b7b35d19e534b76a119c77fee773c9f37417d02adb9db1fa146d31ee72
         name: workload
         resources: {}
         securityContext:
