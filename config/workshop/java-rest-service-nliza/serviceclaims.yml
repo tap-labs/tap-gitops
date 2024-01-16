@@ -1,0 +1,41 @@
+apiVersion: kapp.k14s.io/v1alpha1
+kind: Config
+waitRules:
+- conditionMatchers:
+  - type: ServiceAvailable
+    status: "False"
+    failure: true
+  - type: ServiceAvailable
+    status: "True"
+    success: true
+  resourceMatchers:
+  - apiVersionKindMatcher:
+      apiVersion: servicebinding.io/v1alpha3
+      kind: ServiceBinding
+---
+apiVersion: servicebinding.io/v1alpha3
+kind: ServiceBinding
+metadata:
+  name: java-rest-service-nliza-database
+  annotations:
+    local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:workshop-java-rest-service-nliza@sha256:91215c761144bb650762a480e2fecfee3ae1221c0bd0c5e36033cd8198bfd210
+    autoscaling.knative.dev/minScale: "1"
+    kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
+  labels:
+    app.kubernetes.io/part-of: customer-profile
+    apps.tanzu.vmware.com/auto-configure-actuators: "true"
+    apps.tanzu.vmware.com/has-tests: "true"
+    apps.tanzu.vmware.com/workload-type: web
+    app.kubernetes.io/component: run
+    carto.run/workload-name: java-rest-service-nliza
+spec:
+  name: database
+  service:
+    apiVersion: services.apps.tanzu.vmware.com/v1alpha1
+    kind: ClassClaim
+    name: customer-database-nliza
+  workload:
+    apiVersion: serving.knative.dev/v1
+    kind: Service
+    name: java-rest-service-nliza
+
