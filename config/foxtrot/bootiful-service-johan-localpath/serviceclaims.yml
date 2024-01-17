@@ -18,7 +18,7 @@ kind: ServiceBinding
 metadata:
   name: bootiful-service-johan-localpath-bootiful-service-johan-localpath-psql
   annotations:
-    local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:foxtrot-bootiful-service-johan-localpath@sha256:03d9737c2709d40e68d4d1efeb742f3ef8a4e6087f311af9367a7afacb84e4e1
+    local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:foxtrot-bootiful-service-johan-localpath@sha256:b3223dda247cd4451ff971870972dd3d555be78fd7015ad1a847538e95ab9d17
     autoscaling.knative.dev/minScale: "1"
     kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
   labels:
