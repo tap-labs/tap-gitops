@@ -45,7 +45,7 @@ spec:
       - env:
         - name: DOTNET_CLI_TELEMETRY_OPTOUT
           value: "true"
-        image: harbor.services.tanzu.rocks/labs/supply-chain/csharp-rest-service-nliza-workshop@sha256:8a92df448173af629a53d9141f4119ed041a20071535cc03d84e49c6bdc48608
+        image: harbor.services.tanzu.rocks/labs/supply-chain/csharp-rest-service-nliza-workshop@sha256:f42f8ce427d01e687dba1095fb7cd6fe81193f1037562c46bfc2a592bb4e5a8f
         name: workload
         resources: {}
         securityContext:
