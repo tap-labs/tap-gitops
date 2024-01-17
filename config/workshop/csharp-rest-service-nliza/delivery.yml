@@ -1,0 +1,61 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: csharp-rest-service-nliza
+  annotations:
+    ootb.apps.tanzu.vmware.com/servicebinding-workload: "true"
+    ootb.apps.tanzu.vmware.com/apidescriptor-ref: "true"
+    kapp.k14s.io/change-rule: upsert after upserting servicebinding.io/ServiceBindings
+  labels:
+    app.kubernetes.io/part-of: csharp-rest-service
+    apps.tanzu.vmware.com/has-tests: "false"
+    apps.tanzu.vmware.com/workload-type: web
+    tanzu.app.live.view: "true"
+    tanzu.app.live.view.application.actuator.port: "9090"
+    tanzu.app.live.view.application.flavours: steeltoe
+    tanzu.app.live.view.application.name: csharp-rest-service
+    app.kubernetes.io/component: run
+    carto.run/workload-name: csharp-rest-service-nliza
+spec:
+  template:
+    metadata:
+      annotations:
+        apps.tanzu.vmware.com/correlationid: harbor.services.tanzu.rocks/labs/local-source:workshop-csharp-rest-service-nliza?sub_path=/
+        autoscaling.knative.dev/minScale: "1"
+        conventions.carto.run/applied-conventions: |-
+          appliveview-sample/app-live-view-appflavour-check
+          appliveview-sample/app-live-view-connector-steeltoe
+          appliveview-sample/app-live-view-appflavours-steeltoe
+          spring-boot-convention/auto-configure-actuators-check
+          spring-boot-convention/app-live-view-appflavour-check
+        developer.conventions/target-containers: workload
+        local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:workshop-csharp-rest-service-nliza@sha256:1cd7d23ca17b15142c197e7ad1fb1d9e7c96e926717f491389ccff5f023e01b6
+      labels:
+        app.kubernetes.io/component: run
+        app.kubernetes.io/part-of: csharp-rest-service
+        apps.tanzu.vmware.com/has-tests: "false"
+        apps.tanzu.vmware.com/workload-type: web
+        carto.run/workload-name: csharp-rest-service-nliza
+        tanzu.app.live.view: "true"
+        tanzu.app.live.view.application.actuator.port: "9090"
+        tanzu.app.live.view.application.flavours: steeltoe
+        tanzu.app.live.view.application.name: csharp-rest-service
+    spec:
+      containers:
+      - env:
+        - name: DOTNET_CLI_TELEMETRY_OPTOUT
+          value: "true"
+        image: harbor.services.tanzu.rocks/labs/supply-chain/csharp-rest-service-nliza-workshop@sha256:8a92df448173af629a53d9141f4119ed041a20071535cc03d84e49c6bdc48608
+        name: workload
+        resources: {}
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+      serviceAccountName: default
+
