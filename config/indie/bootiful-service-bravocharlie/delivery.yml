@@ -33,7 +33,7 @@ spec:
           spring-boot-convention/app-live-view-connector-boot
           spring-boot-convention/app-live-view-appflavours-boot
         developer.conventions/target-containers: workload
-        local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:indie-bootiful-service-bravocharlie@sha256:8aff5c434a9aa4744aaf0608427cff5f1039415654469dd47a1c46cf4bb3c974
+        local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:indie-bootiful-service-bravocharlie@sha256:074f60ae2208be08126d87f1def9add7b5747266a8357dda07fd934dbd3dc00e
       labels:
         app.kubernetes.io/component: run
         app.kubernetes.io/part-of: bootiful-service-bravocharlie
