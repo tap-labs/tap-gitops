@@ -16,9 +16,9 @@ waitRules:
 apiVersion: servicebinding.io/v1alpha3
 kind: ServiceBinding
 metadata:
-  name: bootiful-service-bravocharlie-postgres
+  name: bootiful-service-bravocharlie-psql
   annotations:
-    local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:indie-bootiful-service-bravocharlie@sha256:8aff5c434a9aa4744aaf0608427cff5f1039415654469dd47a1c46cf4bb3c974
+    local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:indie-bootiful-service-bravocharlie@sha256:074f60ae2208be08126d87f1def9add7b5747266a8357dda07fd934dbd3dc00e
     autoscaling.knative.dev/minScale: "1"
     kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
   labels:
@@ -29,7 +29,7 @@ metadata:
     app.kubernetes.io/component: run
     carto.run/workload-name: bootiful-service-bravocharlie
 spec:
-  name: postgres
+  name: psql
   service:
     apiVersion: services.apps.tanzu.vmware.com/v1alpha1
     kind: ClassClaim
