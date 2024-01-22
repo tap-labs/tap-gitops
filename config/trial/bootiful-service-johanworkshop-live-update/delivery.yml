@@ -40,7 +40,7 @@ spec:
           spring-boot-convention/app-live-view-appflavours-boot
         developer.apps.tanzu.vmware.com/image-source-digest: harbor.services.tanzu.rocks/labs/local-source:trial-bootiful-service-johanworkshop-live-update@sha256:8b1b517bc4b202bd05387bcbcb9578825f8af252a87d1a0b6e62dfa9d7777d3d
         developer.conventions/target-containers: workload
-        local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:trial-bootiful-service-johanworkshop-live-update@sha256:8b1b517bc4b202bd05387bcbcb9578825f8af252a87d1a0b6e62dfa9d7777d3d
+        local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:trial-bootiful-service-johanworkshop-live-update@sha256:bd63cb3f0c19700b5d8d439d4d31ae843041e9e4560969dc69e045249057eea7
       labels:
         app.kubernetes.io/component: run
         app.kubernetes.io/part-of: bootiful-service-johanworkshop
