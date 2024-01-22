@@ -38,7 +38,7 @@ spec:
           spring-boot-convention/app-live-view-appflavour-check
           spring-boot-convention/app-live-view-connector-boot
           spring-boot-convention/app-live-view-appflavours-boot
-        developer.apps.tanzu.vmware.com/image-source-digest: harbor.services.tanzu.rocks/labs/local-source:trial-bootiful-service-johanworkshop-live-update@sha256:8b1b517bc4b202bd05387bcbcb9578825f8af252a87d1a0b6e62dfa9d7777d3d
+        developer.apps.tanzu.vmware.com/image-source-digest: harbor.services.tanzu.rocks/labs/local-source:trial-bootiful-service-johanworkshop-live-update@sha256:bd63cb3f0c19700b5d8d439d4d31ae843041e9e4560969dc69e045249057eea7
         developer.conventions/target-containers: workload
         local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:trial-bootiful-service-johanworkshop-live-update@sha256:bd63cb3f0c19700b5d8d439d4d31ae843041e9e4560969dc69e045249057eea7
       labels:
@@ -63,7 +63,7 @@ spec:
           value: "9005"
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.endpoint.health.show-details="always" -Dmanagement.endpoints.web.base-path="/actuator" -Dmanagement.endpoints.web.exposure.include="*" -Dmanagement.health.probes.enabled="true" -Dmanagement.server.port="8081" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: harbor.services.tanzu.rocks/labs/supply-chain/bootiful-service-johanworkshop-live-update-trial@sha256:729eb78f74496c0e3723d51cf1f6c854e6f4e9a6ad6031872fcfee89ce157525
+        image: harbor.services.tanzu.rocks/labs/supply-chain/bootiful-service-johanworkshop-live-update-trial@sha256:251cc374daf5a0ed8699a3cee19bc360ec6f3b486407fdbbf9eccd33a7b97b6e
         livenessProbe:
           httpGet:
             path: /livez
