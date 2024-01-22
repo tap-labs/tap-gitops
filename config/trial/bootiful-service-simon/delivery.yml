@@ -34,7 +34,7 @@ spec:
           spring-boot-convention/app-live-view-appflavours-boot
           spring-boot-convention/service-intent-postgres
         developer.conventions/target-containers: workload
-        local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:trial-bootiful-service-simon@sha256:d0e6400d2b03f939cbdcc006db6084e6aaf2b39c88a06e066a5a59a57a31293a
+        local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:trial-bootiful-service-simon@sha256:7debf343b5691c03c0296d1450fa558bd2857623cce0112ea3c234152858964e
         services.conventions.carto.run/postgres: postgresql/42.6.0
       labels:
         app.kubernetes.io/component: run
@@ -55,7 +55,7 @@ spec:
       - env:
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.endpoint.health.show-details="always" -Dmanagement.endpoints.web.base-path="/actuator" -Dmanagement.endpoints.web.exposure.include="*" -Dmanagement.health.probes.enabled="true" -Dmanagement.server.port="8081" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: harbor.services.tanzu.rocks/labs/supply-chain/bootiful-service-simon-trial@sha256:a83919a7b8b115bc26c83f93c4526e979fcfa0248898c7a3e48d8630658afca7
+        image: harbor.services.tanzu.rocks/labs/supply-chain/bootiful-service-simon-trial@sha256:40529e8f363a2b6439ca66df636882aead2979162ef90406a4f0c3fe7b28e6ab
         livenessProbe:
           httpGet:
             path: /livez
