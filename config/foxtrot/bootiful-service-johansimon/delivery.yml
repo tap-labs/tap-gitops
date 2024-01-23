@@ -32,8 +32,10 @@ spec:
           spring-boot-convention/app-live-view-appflavour-check
           spring-boot-convention/app-live-view-connector-boot
           spring-boot-convention/app-live-view-appflavours-boot
+          spring-boot-convention/service-intent-postgres
         developer.conventions/target-containers: workload
         local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:foxtrot-bootiful-service-johansimon@sha256:4a087750f793e6ed748a17474e1d1be2f59f9c2c2941ee795323855705a3d017
+        services.conventions.carto.run/postgres: postgresql/42.6.0
       labels:
         app.kubernetes.io/component: run
         app.kubernetes.io/part-of: bootiful-service-johansimon
@@ -42,6 +44,7 @@ spec:
         apps.tanzu.vmware.com/workload-type: web
         carto.run/workload-name: bootiful-service-johansimon
         conventions.carto.run/framework: spring-boot
+        services.conventions.carto.run/postgres: workload
         tanzu.app.live.view: "true"
         tanzu.app.live.view.application.actuator.path: actuator
         tanzu.app.live.view.application.actuator.port: "8081"
@@ -52,7 +55,7 @@ spec:
       - env:
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.endpoint.health.show-details="always" -Dmanagement.endpoints.web.base-path="/actuator" -Dmanagement.endpoints.web.exposure.include="*" -Dmanagement.health.probes.enabled="true" -Dmanagement.server.port="8081" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: harbor.services.tanzu.rocks/labs/supply-chain/bootiful-service-johansimon-foxtrot@sha256:cbac99ae086758dcc040604ab18d2f9f98b27bcbc9db0f45e10555a4e6e2fba7
+        image: harbor.services.tanzu.rocks/labs/supply-chain/bootiful-service-johansimon-foxtrot@sha256:1ea9ac0623bad8270e7fb364c59c21bf3b344ace54cbb6ec31f8531186057f15
         livenessProbe:
           httpGet:
             path: /livez
