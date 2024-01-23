@@ -1,0 +1,66 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: bootiful-client-nliza
+  annotations:
+    ootb.apps.tanzu.vmware.com/servicebinding-workload: "true"
+    ootb.apps.tanzu.vmware.com/apidescriptor-ref: "true"
+    kapp.k14s.io/change-rule: upsert after upserting servicebinding.io/ServiceBindings
+  labels:
+    app.kubernetes.io/part-of: bootiful-client-nliza
+    apps.tanzu.vmware.com/auto-configure-actuators: "true"
+    apps.tanzu.vmware.com/has-tests: "true"
+    apps.tanzu.vmware.com/workload-type: web
+    tanzu.app.live.view: "true"
+    tanzu.app.live.view.application.flavours: spring-boot_spring-cloud-gateway-server
+    app.kubernetes.io/component: run
+    carto.run/workload-name: bootiful-client-nliza
+spec:
+  template:
+    metadata:
+      annotations:
+        apps.tanzu.vmware.com/correlationid: harbor.services.tanzu.rocks/labs/local-source:demo-bootiful-client-nliza?sub_path=/
+        autoscaling.knative.dev/minScale: "1"
+        boot.spring.io/version: 3.1.1
+        conventions.carto.run/applied-conventions: |-
+          appliveview-sample/app-live-view-appflavour-check
+          spring-boot-convention/auto-configure-actuators-check
+          spring-boot-convention/spring-boot
+          spring-boot-convention/spring-boot-web
+          spring-boot-convention/app-live-view-appflavour-check
+        developer.conventions/target-containers: workload
+        local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:demo-bootiful-client-nliza@sha256:ad067f89e9e2b7996a726b6db862a808e1b136b3bfce752bdcdddddbd1463d75
+      labels:
+        app.kubernetes.io/component: run
+        app.kubernetes.io/part-of: bootiful-client-nliza
+        apps.tanzu.vmware.com/auto-configure-actuators: "true"
+        apps.tanzu.vmware.com/has-tests: "true"
+        apps.tanzu.vmware.com/workload-type: web
+        carto.run/workload-name: bootiful-client-nliza
+        conventions.carto.run/framework: spring-boot
+        tanzu.app.live.view: "true"
+        tanzu.app.live.view.application.flavours: spring-boot_spring-cloud-gateway-server
+    spec:
+      containers:
+      - env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: cloud
+        - name: JAVA_TOOL_OPTIONS
+          value: -Dserver.port="8080"
+        image: harbor.services.tanzu.rocks/labs/supply-chain/bootiful-client-nliza-demo@sha256:e2dbe34bd50006e5d3553512af90e8cca85e8e46a041e154be76f036c62f8078
+        name: workload
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        resources: {}
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+      serviceAccountName: default
+
