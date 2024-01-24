@@ -55,7 +55,7 @@ spec:
       - env:
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.endpoint.health.show-details="always" -Dmanagement.endpoints.web.base-path="/actuator" -Dmanagement.endpoints.web.exposure.include="*" -Dmanagement.health.probes.enabled="true" -Dmanagement.server.port="8081" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: harbor.services.tanzu.rocks/labs/supply-chain/bootiful-service-va-foxtrot@sha256:5834fe013fb6524608609f3008059db6b41eec81011ad6fd230b5696b5519e6b
+        image: harbor.services.tanzu.rocks/labs/supply-chain/bootiful-service-va-foxtrot@sha256:ceb7ed426dba063e6f6a25acf8bc9982d667e2c03e4d259c21bcf201f01005fc
         livenessProbe:
           httpGet:
             path: /livez
