@@ -18,7 +18,7 @@ kind: ServiceBinding
 metadata:
   name: bootiful-service-jordan-psql
   annotations:
-    local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:foxtrot-bootiful-service-jordan@sha256:4f358cfb8d8b2ae3c8572c754fda921b953526854917a90f9da479ac0f15c49f
+    local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:foxtrot-bootiful-service-jordan@sha256:a5e721acbeb23ba2954e9b4bebe95eafb45d190afd3a746dcc2b6e43724d5499
     autoscaling.knative.dev/minScale: "1"
     kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
   labels:
