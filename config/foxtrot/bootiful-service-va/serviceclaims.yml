@@ -18,7 +18,7 @@ kind: ServiceBinding
 metadata:
   name: bootiful-service-va-bootiful-service-va-psql
   annotations:
-    local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:foxtrot-bootiful-service-va@sha256:0f838ef2206e8f60e703af18a97afb85c3ac6c099696e701974ca29ff3c5d7ff
+    local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:foxtrot-bootiful-service-va@sha256:00c526264973f14f769c33184ed902010ff595ba8efcd304f90853be4147f414
     autoscaling.knative.dev/minScale: "1"
     kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
   labels:
@@ -31,9 +31,9 @@ metadata:
 spec:
   name: bootiful-service-va-psql
   service:
-    apiVersion: ""
-    kind: ""
-    name: ""
+    apiVersion: services.apps.tanzu.vmware.com/v1alpha1
+    kind: ClassClaim
+    name: psql-va
   workload:
     apiVersion: serving.knative.dev/v1
     kind: Service
