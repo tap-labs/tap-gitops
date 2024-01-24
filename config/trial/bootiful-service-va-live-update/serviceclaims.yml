@@ -18,7 +18,7 @@ kind: ServiceBinding
 metadata:
   name: bootiful-service-va-live-update-bootiful-service-va-psql
   annotations:
-    local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:trial-bootiful-service-va-live-update@sha256:bfd4c8c71f544cb59b9060091fffeb90c49c38d1ab52f02ca11de7e3ae1e4773
+    local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:trial-bootiful-service-va-live-update@sha256:11c2f1ae46d9d58285c05254037d03a7c1d967cf25ede65e80c8d60b80e648e9
     autoscaling.knative.dev/minScale: "1"
     kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
   labels:

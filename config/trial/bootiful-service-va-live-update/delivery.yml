@@ -39,9 +39,9 @@ spec:
           spring-boot-convention/app-live-view-connector-boot
           spring-boot-convention/app-live-view-appflavours-boot
           spring-boot-convention/service-intent-postgres
-        developer.apps.tanzu.vmware.com/image-source-digest: harbor.services.tanzu.rocks/labs/local-source:trial-bootiful-service-va-live-update@sha256:bfd4c8c71f544cb59b9060091fffeb90c49c38d1ab52f02ca11de7e3ae1e4773
+        developer.apps.tanzu.vmware.com/image-source-digest: harbor.services.tanzu.rocks/labs/local-source:trial-bootiful-service-va-live-update@sha256:11c2f1ae46d9d58285c05254037d03a7c1d967cf25ede65e80c8d60b80e648e9
         developer.conventions/target-containers: workload
-        local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:trial-bootiful-service-va-live-update@sha256:bfd4c8c71f544cb59b9060091fffeb90c49c38d1ab52f02ca11de7e3ae1e4773
+        local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:trial-bootiful-service-va-live-update@sha256:11c2f1ae46d9d58285c05254037d03a7c1d967cf25ede65e80c8d60b80e648e9
         services.conventions.carto.run/postgres: postgresql/42.6.0
       labels:
         app.kubernetes.io/component: run
@@ -66,7 +66,7 @@ spec:
           value: "9005"
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.endpoint.health.show-details="always" -Dmanagement.endpoints.web.base-path="/actuator" -Dmanagement.endpoints.web.exposure.include="*" -Dmanagement.health.probes.enabled="true" -Dmanagement.server.port="8081" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: harbor.services.tanzu.rocks/labs/supply-chain/bootiful-service-va-live-update-trial@sha256:0197f00d309938bac419f9b1d688b5946c1938abe3a2e20aef601a7af70e1695
+        image: harbor.services.tanzu.rocks/labs/supply-chain/bootiful-service-va-live-update-trial@sha256:a708d84ae769596c3fd11d4781ebf16090678ba8d6bc6b59ed35ee8816ddd6e8
         livenessProbe:
           httpGet:
             path: /livez
