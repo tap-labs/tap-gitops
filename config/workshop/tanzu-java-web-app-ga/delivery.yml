@@ -9,7 +9,7 @@ metadata:
   labels:
     app.kubernetes.io/part-of: tanzu-java-web-app-ga
     apps.tanzu.vmware.com/auto-configure-actuators: "true"
-    apps.tanzu.vmware.com/has-tests: "false"
+    apps.tanzu.vmware.com/has-tests: "true"
     apps.tanzu.vmware.com/workload-type: web
     app.kubernetes.io/component: run
     carto.run/workload-name: tanzu-java-web-app-ga
@@ -18,17 +18,11 @@ spec:
     metadata:
       annotations:
         apps.tanzu.vmware.com/correlationid: harbor.services.tanzu.rocks/labs/local-source:workshop-tanzu-java-web-app-ga?sub_path=/
-        apps.tanzu.vmware.com/debug: "true"
-        apps.tanzu.vmware.com/live-update: "true"
-        autoscaling.knative.dev/maxScale: "1"
         autoscaling.knative.dev/minScale: "1"
         boot.spring.io/actuator: http://:8081/actuator
         boot.spring.io/version: 3.1.3
         conventions.carto.run/applied-conventions: |-
           appliveview-sample/app-live-view-appflavour-check
-          developer-conventions/debug-convention
-          developer-conventions/live-update-convention
-          developer-conventions/add-source-image-label
           spring-boot-convention/auto-configure-actuators-check
           spring-boot-convention/spring-boot
           spring-boot-convention/spring-boot-graceful-shutdown
@@ -38,14 +32,13 @@ spec:
           spring-boot-convention/app-live-view-appflavour-check
           spring-boot-convention/app-live-view-connector-boot
           spring-boot-convention/app-live-view-appflavours-boot
-        developer.apps.tanzu.vmware.com/image-source-digest: harbor.services.tanzu.rocks/labs/local-source:workshop-tanzu-java-web-app-ga@sha256:6754ae95f0d7cb2b7cf4eb12bef9654de483b7451aa5810a55565d814cc9191c
         developer.conventions/target-containers: workload
-        local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:workshop-tanzu-java-web-app-ga@sha256:6754ae95f0d7cb2b7cf4eb12bef9654de483b7451aa5810a55565d814cc9191c
+        local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:workshop-tanzu-java-web-app-ga@sha256:88b072f320fa4cd91e0d1fcf6433e0b5f827aeb503f7d743f2a45ca7d31b5015
       labels:
         app.kubernetes.io/component: run
         app.kubernetes.io/part-of: tanzu-java-web-app-ga
         apps.tanzu.vmware.com/auto-configure-actuators: "true"
-        apps.tanzu.vmware.com/has-tests: "false"
+        apps.tanzu.vmware.com/has-tests: "true"
         apps.tanzu.vmware.com/workload-type: web
         carto.run/workload-name: tanzu-java-web-app-ga
         conventions.carto.run/framework: spring-boot
@@ -57,13 +50,9 @@ spec:
     spec:
       containers:
       - env:
-        - name: BPL_DEBUG_ENABLED
-          value: "true"
-        - name: BPL_DEBUG_PORT
-          value: "9005"
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.endpoint.health.show-details="always" -Dmanagement.endpoints.web.base-path="/actuator" -Dmanagement.endpoints.web.exposure.include="*" -Dmanagement.health.probes.enabled="true" -Dmanagement.server.port="8081" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: harbor.services.tanzu.rocks/labs/supply-chain/tanzu-java-web-app-ga-workshop@sha256:54b120c950c201495eabe3248060904889d84dcfc765e670b7dfc89edfb2c13e
+        image: harbor.services.tanzu.rocks/labs/supply-chain/tanzu-java-web-app-ga-workshop@sha256:b4b2d3aa21f50282e702373ab98cc05088323786a6018d4819cb84c6531c5c75
         livenessProbe:
           httpGet:
             path: /livez
