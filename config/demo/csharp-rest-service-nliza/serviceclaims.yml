@@ -1,0 +1,44 @@
+apiVersion: kapp.k14s.io/v1alpha1
+kind: Config
+waitRules:
+- conditionMatchers:
+  - type: ServiceAvailable
+    status: "False"
+    failure: true
+  - type: ServiceAvailable
+    status: "True"
+    success: true
+  resourceMatchers:
+  - apiVersionKindMatcher:
+      apiVersion: servicebinding.io/v1alpha3
+      kind: ServiceBinding
+---
+apiVersion: servicebinding.io/v1alpha3
+kind: ServiceBinding
+metadata:
+  name: csharp-rest-service-nliza-database
+  annotations:
+    local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:demo-csharp-rest-service-nliza@sha256:78557c68c070af6ab02e40c3b70828da47146d89efab7f1590b2def319aa3272
+    autoscaling.knative.dev/minScale: "1"
+    kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
+  labels:
+    app.kubernetes.io/part-of: csharp-rest-service
+    apps.tanzu.vmware.com/has-tests: "false"
+    apps.tanzu.vmware.com/workload-type: web
+    tanzu.app.live.view: "true"
+    tanzu.app.live.view.application.actuator.port: "9090"
+    tanzu.app.live.view.application.flavours: steeltoe
+    tanzu.app.live.view.application.name: csharp-rest-service
+    app.kubernetes.io/component: run
+    carto.run/workload-name: csharp-rest-service-nliza
+spec:
+  name: database
+  service:
+    apiVersion: services.apps.tanzu.vmware.com/v1alpha1
+    kind: ClassClaim
+    name: customer-database-nliza
+  workload:
+    apiVersion: serving.knative.dev/v1
+    kind: Service
+    name: csharp-rest-service-nliza
+
