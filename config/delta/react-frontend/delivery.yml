@@ -31,7 +31,7 @@ spec:
         carto.run/workload-name: react-frontend
     spec:
       containers:
-      - image: harbor.services.tanzu.rocks/labs/supply-chain/react-frontend-delta@sha256:6e9afc4ecf889c4e58b03258526ae1547823531346bee600824969394e2edd60
+      - image: harbor.services.tanzu.rocks/labs/supply-chain/react-frontend-delta@sha256:7d4ce3d30fb127036617783260ffc6f53e4674967ca5d17147f26ecd14d62135
         name: workload
         resources: {}
         securityContext:
