@@ -1,0 +1,48 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: react-frontend-james
+  annotations:
+    ootb.apps.tanzu.vmware.com/servicebinding-workload: "true"
+    ootb.apps.tanzu.vmware.com/apidescriptor-ref: "true"
+    kapp.k14s.io/change-rule: upsert after upserting servicebinding.io/ServiceBindings
+  labels:
+    app.kubernetes.io/part-of: react-frontend-james
+    apps.tanzu.vmware.com/has-tests: "false"
+    apps.tanzu.vmware.com/workload-type: web
+    app.kubernetes.io/component: run
+    carto.run/workload-name: react-frontend-james
+spec:
+  template:
+    metadata:
+      annotations:
+        apps.tanzu.vmware.com/correlationid: harbor.services.tanzu.rocks/labs/local-source:delta-react-frontend-james?sub_path=/
+        autoscaling.knative.dev/minScale: "1"
+        conventions.carto.run/applied-conventions: |-
+          appliveview-sample/app-live-view-appflavour-check
+          spring-boot-convention/auto-configure-actuators-check
+          spring-boot-convention/app-live-view-appflavour-check
+        developer.conventions/target-containers: workload
+        local-source-proxy.apps.tanzu.vmware.com: harbor.services.tanzu.rocks/labs/local-source:delta-react-frontend-james@sha256:783e787edd40e2063da4cbdbfceedbfee50f813056df231f06315d8690356f6c
+      labels:
+        app.kubernetes.io/component: run
+        app.kubernetes.io/part-of: react-frontend-james
+        apps.tanzu.vmware.com/has-tests: "false"
+        apps.tanzu.vmware.com/workload-type: web
+        carto.run/workload-name: react-frontend-james
+    spec:
+      containers:
+      - image: harbor.services.tanzu.rocks/labs/supply-chain/react-frontend-james-delta@sha256:33b35ef289fdd6158c0bf5398dd222bd93d5c1954959764febff300d19792119
+        name: workload
+        resources: {}
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+      serviceAccountName: default
+
